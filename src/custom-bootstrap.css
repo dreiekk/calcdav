@@ -1,0 +1,15 @@
+.form-control,
+.btn,
+.list-group-item,
+.alert {
+    border-radius: 0 !important;
+}
+
+.alert {
+    padding: 0.25rem 0.75rem;
+}
+
+.form-control {
+    border: 0 !important;
+    background-color: lightgray;
+}
