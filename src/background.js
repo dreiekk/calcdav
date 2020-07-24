@@ -8,6 +8,8 @@ const path = require('path')
 
 const { autoUpdater } = require('electron-updater');
 
+import { formatBytes } from './helpers/HelperFunctions';
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -143,7 +145,7 @@ autoUpdater.on('update-downloaded', () => {
 });
 
 autoUpdater.on('download-progress', (progressObj) => {
-  let log_message = 'Downloading update ' + progressObj.percent + '% (' + progressObj.transferred + "/" + progressObj.total + ' @' + progressObj.bytesPerSecond + ')';
+  let log_message = 'Downloading update ' + Math.round(progressObj.percent) + '% (' + formatBytes(progressObj.transferred) + "/" + formatBytes(progressObj.total) + ' @' + formatBytes(progressObj.bytesPerSecond) + '/s)';
 
   win.webContents.send('updateInfo', {
     updateStatus: log_message,

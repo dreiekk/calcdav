@@ -1,7 +1,7 @@
 {
   "name": "calcdav",
   "description": "Simple caldav-client to sum up project hours from a calendar.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "keywords": [
     "nodejs",

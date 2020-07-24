@@ -4,14 +4,14 @@
         <i class="fab fa-fw fa-github mr-1"></i>
         <span>dreiekk/calcdav</span>
       </a>
-      <div class="text-white text-center">
+      <div class="text-muted text-center font-weight-light">
         <div v-if="!updateReady">
-          <i v-if="updateLoading" class="fas fa-fw fa-spin fa-circle-notch"></i>
+          <i v-if="updateLoading" class="fas fa-fw fa-spin fa-circle-notch mr-2"></i>
           <span>{{ updateStatus }}</span>
         </div>
         <a href="#" @click="restartForUpdate" v-if="updateReady">
-          <i class="fas fa-fw fa-box-open"></i>
-          Update downloaded. Click here to install.
+          <i class="fas fa-fw fa-box-open mr-2"></i>
+          Update ready. Click here to install.
         </a>
       </div>
       <a href="#" class="text-right text-muted" style="user-select: none; cursor: default; pointer-events: none; width: 140px;">
