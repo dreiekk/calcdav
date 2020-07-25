@@ -13,6 +13,7 @@ body {
   /* background: #1A2933; */
   background: #222222;
   color: #FFF;
+  overflow: hidden;
 }
 
 h1 {
@@ -37,7 +38,8 @@ p {
   display: block;
   position: fixed;
   height: 32px;
-  width: calc(100% - 2px);
+  /* width: calc(100% - 2px); */
+  width: 100%;
 }
 
 .maximized #titlebar {
@@ -191,4 +193,6 @@ p {
 
 #app {
   height: 100%;
+  overflow-y: auto;
+  padding-top: 30px;
 }
