@@ -45,6 +45,9 @@ export default {
   name: 'App',
   components: {
     Statusbar
+  },
+  created() {
+    this.$i18n.locale = navigator.language;
   }
 }
 </script>
