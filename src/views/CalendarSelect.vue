@@ -2,11 +2,11 @@
   <div>
 
       <div class="alert alert-success">
-        Successfully connected to caldav-server
+        {{ $t('status_connected') }}
       </div>
       
       <div class="container d-flex flex-column">
-        <h4 class="text-white mt-5 mb-3">Choose a calendar</h4>
+        <h4 class="text-white mt-5 mb-3">{{ $t('choose_calendar') }}</h4>
         <div class="list-group">
           <a href="#" @click="selectCalendar(calendar)" class="list-group-item list-group-item-action" v-for="(calendar, index) in calendars" :key="index">{{ calendar.displayName }}</a>
         </div>
@@ -50,3 +50,16 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "en": {
+    "status_connected": "Successfully connected to caldav-server",
+    "choose_calendar": "Choose a calendar"
+  },
+  "de": {
+    "error_connect": "Fehler beim Verbinden / Authentifizieren am CalDAV-Server",
+    "choose_calendar": "Wähle einen Kalender"
+  }
+}
+</i18n>

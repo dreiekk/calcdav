@@ -1,7 +1,7 @@
 <template>
   <div class="w-100 h-100">
     <div v-if="error" class="alert alert-danger text-center">
-      Error connecting / authenticating to caldav-server<br />
+      {{ $t('error_connect') }}<br />
     </div>
 
     <div class="login-form-container">
@@ -14,17 +14,18 @@
             <input type="text" class="form-control" id="inputCaldavUrl" v-model="inputCaldavUrl" placeholder="CalDAV-URL">
           </div>
           <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" v-model="inputUsername" placeholder="Username">
+            <label for="inputUsername">{{ $t('username') }}</label>
+            <input type="text" class="form-control" id="inputUsername" v-model="inputUsername" :placeholder="$t('username')">
           </div>
           <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" v-model="inputPassword" placeholder="Password">
+            <label for="inputPassword">{{ $t('password') }}</label>
+            <input type="password" class="form-control" id="inputPassword" v-model="inputPassword" :placeholder="$t('password')">
           </div>
           <button type="submit" class="btn btn-sm btn-primary" :disabled="loading">
-            <i v-if="!loading" class="fas fa-fw fa-key"></i>
-            <i v-if="loading" class="fas fa-fw fa-spin fa-circle-notch"></i>
-            Login
+            <i v-if="!loading" class="fas fa-fw fa-key mr-1"></i>
+            <i v-if="loading" class="fas fa-fw fa-spin fa-circle-notch mr-1"></i>
+            <span v-if="!loading">{{ $t('login') }}</span>
+            <span v-if="loading">{{ $t('logging_in') }}</span>
           </button>
         </form>
       </div>
@@ -111,3 +112,22 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "en": {
+    "error_connect": "Error connecting / authenticating to caldav-server",
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "logging_in": "Logging in..."
+  },
+  "de": {
+    "error_connect": "Fehler beim Verbinden / Authentifizieren am CalDAV-Server",
+    "username": "Benutzer",
+    "password": "Passwort",
+    "login": "Login",
+    "logging_in": "Logge ein..."
+  }
+}
+</i18n>

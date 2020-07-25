@@ -3,23 +3,23 @@
 
     <div v-if="statusbar == 'error'" class="alert alert-danger text-center mb-0">
       <i class="fas fa-fw fa-exclamation-triangle"></i>
-      An error occured!
+      {{ $t('status_error') }}
     </div>
 
     <div v-if="statusbar == 'updating_calendar'" class="alert alert-info text-center mb-0">
       <i class="fas fa-fw fa-spin fa-circle-notch"></i>
-      Downloading calendar
+      {{ $t('status_calendar_download') }}
     </div>
 
     <div v-if="statusbar == 'calendar_uptodate'" class="alert alert-success text-center mb-0">
       <i class="fas fa-fw fa-check"></i>
-      Calendar is up to date
+      {{ $t('status_calendar_uptodate') }}
     </div>
 
     <div v-if="statusbar == 'calendar_changed'" class="alert alert-info text-center mb-0">
       <i class="fas fa-fw fa-exchange-alt"></i>
-      Calendar has changed
-      <a class="ml-2" href="#">Download now</a>
+      {{ $t('status_calendar_changed') }}
+      <a class="ml-2" href="#">{{ $t('status_calendar_changed_button') }}</a>
     </div>
 
     <div class="text-left p-4">
@@ -27,21 +27,21 @@
       <form @submit.prevent="">
         <div class="form-row">
           <div class="form-group col-md-3">
-            <label for="inputSearch" class="col-form-label col-form-label-sm">Search</label>
-            <input @keydown.enter="filterRows" id="inputSearch" type="text" class="form-control form-control-sm" placeholder="Search" v-model="form.search">
+            <label for="inputSearch" class="col-form-label col-form-label-sm">{{ $t('search') }}</label>
+            <input @keydown.enter="filterRows" id="inputSearch" type="text" class="form-control form-control-sm" :placeholder="$t('search')" v-model="form.search">
           </div>
 
           <div class="form-group col-md-3">
-            <label for="inputDateFrom" class="col-form-label col-form-label-sm">From</label>
+            <label for="inputDateFrom" class="col-form-label col-form-label-sm">{{ $t('from') }}</label>
             <input @change="filterRows" id="inputDateFrom" type="date" class="form-control form-control-sm" v-model="form.date_from">
           </div>
           <div class="form-group col-md-3">
-            <label for="inputDateTo" class="col-form-label col-form-label-sm">To</label>
+            <label for="inputDateTo" class="col-form-label col-form-label-sm">{{ $t('to') }}</label>
             <input @change="filterRows" id="inputDateTo" type="date" class="form-control form-control-sm" v-model="form.date_to">
           </div>
           <div class="form-group col-md-3">
-            <label for="inputDateTo" class="col-form-label col-form-label-sm">Current view</label>
-            <button type="button" class="btn btn-secondary btn-sm w-100" @click="excelExport">Export as Excel</button>
+            <label for="inputDateTo" class="col-form-label col-form-label-sm">{{ $t('current_view') }}</label>
+            <button type="button" class="btn btn-secondary btn-sm w-100" @click="excelExport">{{ $t('export_excel') }}</button>
           </div>
           <!-- <div class="col">
             <input type="text" class="form-control" placeholder="Last name">
@@ -52,16 +52,16 @@
       <div class="mt-3 mb-4 text-center">
         <div class="form-row">
           <div class="col-sm-4 mb-3 mb-sm-0">
-            <h3 class="mb-0">{{ totalRows }} entries</h3>
-            <span>found</span>
+            <h3 class="mb-0">{{ totalRows }} {{ $tc('entries', totalRows) }}</h3>
+            <span>{{ $t('found') }}</span>
           </div>
           <div class="col-sm-4 mb-3 mb-sm-0">
-            <h3 class="mb-0">{{ totalActiveRows }} entries</h3>
-            <span>selected</span>
+            <h3 class="mb-0">{{ totalActiveRows }} {{ $tc('entries', totalActiveRows) }}</h3>
+            <span>{{ $t('selected') }}</span>
           </div>
           <div class="col-sm-4 mb-3 mb-sm-0">
-            <h3 class="mb-0">{{ totalHours }} hours</h3>
-            <span>in total</span>
+            <h3 class="mb-0">{{ totalHours }} {{ $tc('hours', totalHours) }}</h3>
+            <span>{{ $t('in_total') }}</span>
           </div>
         </div>
       </div>
@@ -71,10 +71,10 @@
           <thead>
             <tr class="text-white">
               <th></th>
-              <th>Title</th>
-              <th>From</th>
-              <th>To</th>
-              <th class="text-center">Hours</th>
+              <th>{{ $t('title') }}</th>
+              <th>{{ $t('from') }}</th>
+              <th>{{ $t('to') }}</th>
+              <th class="text-center">{{ $t('hours_title') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -124,6 +124,10 @@
 
   tr:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  table * {
+    border-color: rgba(255, 255, 255, 0.3) !important;
   }
 </style>
 
@@ -319,3 +323,46 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "en": {
+    "status_error": "An error occured!",
+    "status_calendar_download": "Downloading calendar",
+    "status_calendar_uptodate": "Calendar is up to date",
+    "status_calendar_changed": "Calendar has changed",
+    "status_calendar_changed_button": "Download now",
+    "search": "Search",
+    "from": "From",
+    "to": "To",
+    "current_view": "Current view",
+    "entries": "entry | entries",
+    "hours": "hour | hours",
+    "hours_title": "Hours",
+    "title": "Title",
+    "export_excel": "Export as Excel",
+    "found": "found",
+    "selected": "selected",
+    "in_total": "in total"
+  },
+  "de": {
+    "status_error": "Ein Fehler ist aufgetreten!",
+    "status_calendar_download": "Kalender wird heruntergeladen...",
+    "status_calendar_uptodate": "Kalender ist aktuell",
+    "status_calendar_changed": "Änderungen im Kalender",
+    "status_calendar_changed_button": "Jetzt synchronisieren",
+    "search": "Suche",
+    "from": "Von",
+    "to": "Bis",
+    "current_view": "Aktuelle Ansicht",
+    "entries": "Eintrag | Einträge",
+    "hours": "Stunde | Stunden",
+    "hours_title": "Stunden",
+    "title": "Titel",
+    "export_excel": "Als Excel exportieren",
+    "found": "gefunden",
+    "selected": "ausgewählt",
+    "in_total": "insgesamt"
+  }
+}
+</i18n>
