@@ -28,6 +28,7 @@
     "fs": "0.0.1-security",
     "ical": "^0.8.0",
     "jquery": "^3.5.1",
+    "lodash.orderby": "^4.6.0",
     "moment": "^2.27.0",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",

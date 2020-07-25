@@ -71,14 +71,30 @@
           <thead>
             <tr class="text-white">
               <th></th>
-              <th>{{ $t('title') }}</th>
-              <th>{{ $t('from') }}</th>
-              <th>{{ $t('to') }}</th>
-              <th class="text-center">{{ $t('hours_title') }}</th>
+              <th @click="sort('title')">
+                {{ $t('title') }}
+                <i v-if="sorting.column == 'title' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
+                <i v-if="sorting.column == 'title' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+              </th>
+              <th @click="sort('start_raw')">
+                {{ $t('from') }}
+                <i v-if="sorting.column == 'start_raw' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
+                <i v-if="sorting.column == 'start_raw' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+              </th>
+              <th @click="sort('end_raw')">
+                {{ $t('to') }}
+                <i v-if="sorting.column == 'end_raw' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
+                <i v-if="sorting.column == 'end_raw' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+              </th>
+              <th @click="sort('hours')" class="text-center">
+                {{ $t('hours_title') }}
+                <i v-if="sorting.column == 'hours' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
+                <i v-if="sorting.column == 'hours' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, index) in rows" :key="'row_' + index" class="text-white">
+            <tr v-for="(row, index) in sortedRows" :key="'row_' + index" class="text-white">
               <td style="width: 32px;">
                 <div class="custom-control custom-switch">
                   <input v-model="row.active" type="checkbox" class="custom-control-input" :id="'switch_' + index">
@@ -115,6 +131,8 @@
     position: sticky;
     top: 0;
     background-color: #222;
+    cursor: pointer;
+    user-select: none;
   }
 
   .calendar_label {
@@ -139,6 +157,7 @@ import { syncCalendar } from '../helpers/DavFunctions';
 const ical = require('ical');
 const moment = require('moment');
 var xl = require('excel4node');
+var orderBy = require('lodash.orderby');
 
 // const { ipcRenderer } = require('electron')
 import { openSaveDialog, openErrorDialog } from '../helpers/DialogFunctions';
@@ -157,7 +176,11 @@ export default {
       },
       statusbar: 'updating_calendar',
       rows_raw: [],
-      rows: []
+      rows: [],
+      sorting: {
+        column: 'start_raw',
+        direction: 'asc'
+      }
     }
   },
   computed: {
@@ -177,9 +200,20 @@ export default {
         if (row.active) i += row.hours;
       });
       return parseFloat(i.toFixed(1));
+    },
+    sortedRows() {
+      return orderBy(this.rows, this.sorting.column, this.sorting.direction);
     }
   },
   methods: {
+    sort(column) {
+      if (column != this.sorting.column) {
+        this.sorting.column = column;
+        this.sorting.direction = 'asc'
+      } else {
+        this.sorting.direction = this.sorting.direction == 'asc' ? 'desc' : 'asc';
+      }
+    },
     excelExport() {
       openSaveDialog().then((filename) => {
         
@@ -212,7 +246,7 @@ export default {
         y++;
 
         let i = 0;
-        this.rows.forEach((row) => {
+        this.sortedRows.forEach((row) => {
           if (row.active == false) return;
           ws.cell(y+i, 2).string(row.title);
           ws.cell(y+i, 3).string(row.start);
@@ -307,7 +341,9 @@ export default {
               hours: parseFloat(this.getHours(calendar_object).toFixed(1)),
               title: calendar_object.summary,
               start: this.formatTimestamp(calendar_object.start),
+              start_raw: calendar_object.start,
               end: this.formatTimestamp(calendar_object.end),
+              end_raw: calendar_object.end,
               calendar_object: calendar_object
             });
 
