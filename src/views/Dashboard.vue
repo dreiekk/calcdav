@@ -125,6 +125,10 @@
   tr:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
   }
+
+  table * {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
 </style>
 
 <script>
