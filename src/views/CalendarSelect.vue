@@ -58,7 +58,7 @@ export default {
     "choose_calendar": "Choose a calendar"
   },
   "de": {
-    "error_connect": "Fehler beim Verbinden / Authentifizieren am CalDAV-Server",
+    "status_connected": "Erfolgreich mit CalDAV-Server verbunden",
     "choose_calendar": "Wähle einen Kalender"
   }
 }
