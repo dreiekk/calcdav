@@ -36,6 +36,7 @@ async function createWindow() {
       webSecurity: false
     },
     frame: false,
+    backgroundColor: '#222222'
   })
 
   win.webContents.on('new-window', function(e, url) {
