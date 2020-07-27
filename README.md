@@ -1,4 +1,4 @@
-# calcdav
+# CalcDAV
 
 Simple caldav-client to sum up your project hours from a calendar. Built w/ [Electron](https://www.electronjs.org/), [VueJS](https://vuejs.org/) and [lambdabaa/dav](https://github.com/lambdabaa/dav).
 
