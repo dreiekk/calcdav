@@ -6,6 +6,9 @@ Simple caldav-client to sum up your project hours from a calendar. Built w/ [Ele
 
 ### Features
 
+- Filter calendar events by name or date
+- Exclude single entries from the calculation
+- Sort columns
 - Multi-language (English, German)
 - Export current view as Excel (*.xlsx)
 - Auto Updater
