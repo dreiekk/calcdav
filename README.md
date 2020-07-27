@@ -21,7 +21,7 @@ Download the latest version [on the releases page](https://github.com/dreiekk/ca
 
 ## Developer setup
 
-Make sure NodeJS 12.X and yarn are installed
+Make sure **NodeJS 12.x** and **yarn** are installed
 ```
 node -v
 yarn -v
