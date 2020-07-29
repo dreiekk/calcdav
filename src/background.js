@@ -106,18 +106,16 @@ if (isDevelopment) {
   }
 }
 
-autoUpdater.setFeedURL({
-  provider: "github",
-  owner: "dreiekk",
-  repo: "calcdav"
-});
-
 ipcMain.on('requestVersion', (event) => {
   event.sender.send('version', { version: app.getVersion() });
 });
 
 ipcMain.on('checkForUpdate', () => {
-  autoUpdater.checkForUpdates();
+  if (!isDevelopment) {
+    autoUpdater.checkForUpdates();
+  } else {
+    console.log('We are in dev-environment. Skipping update check...');
+  }
 });
 
 autoUpdater.on('update-available', () => {
