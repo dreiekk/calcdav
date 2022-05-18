@@ -56,7 +56,7 @@
 import { initDav } from '../helpers/DavFunctions';
 
 export default {
-  name: 'Login',
+  name: 'LoginView',
   data: function() {
     return {
       inputCaldavUrl: "",

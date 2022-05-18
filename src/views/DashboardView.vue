@@ -163,7 +163,7 @@ var orderBy = require('lodash.orderby');
 import { openSaveDialog, openErrorDialog } from '../helpers/DialogFunctions';
 
 export default {
-  name: 'Dashboard',
+  name: 'DashboardView',
   components: {
     // HelloWorld
   },

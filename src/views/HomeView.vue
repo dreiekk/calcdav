@@ -11,7 +11,7 @@
 // const { ipcRenderer } = require('electron')
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
     // HelloWorld
   },

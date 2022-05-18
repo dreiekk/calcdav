@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
 import CalendarSelect from '../views/CalendarSelect.vue'
-import Dashboard from '../views/Dashboard.vue'
+import DashboardView from '../views/DashboardView.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +11,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home,
+      component: HomeView,
     meta: {
       requiresAuth: true
     }
@@ -19,7 +19,7 @@ Vue.use(VueRouter)
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: LoginView
   },
   {
     path: '/calendar-select',
@@ -29,7 +29,7 @@ Vue.use(VueRouter)
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard
+    component: DashboardView
   }
 ]
 
