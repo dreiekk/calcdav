@@ -54,6 +54,10 @@
     "vue-cli-plugin-i18n": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
   },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.3.0"
+  },
   "keywords": [
     "nodejs",
     "node",
@@ -64,5 +68,10 @@
     "timetracking",
     "calendar"
   ],
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "overrides": {
+    "dav": {
+      "xmldom": "@xmldom/xmldom@0.8.2"
+    }
+  }
 }
