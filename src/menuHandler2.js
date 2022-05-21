@@ -1,24 +1,15 @@
-const remote = require('electron').remote;
-const win = remote.getCurrentWindow(); /* Note this is different to the html global `window` variable */
+const remote = require("@electron/remote");
+const win = remote.getCurrentWindow();
 
 module.exports = () => {
 
-    // When document has loaded, initialise
     document.onreadystatechange = (event) => {
         if (document.readyState == "complete") {
             handleWindowControls();
         }
     };
 
-    // window.onbeforeunload = (event) => {
-    //     /* If window is reloaded, remove win event listeners
-    //     (DOM element listeners get auto garbage collected but not
-    //     Electron win listeners as the win is not dereferenced unless closed) */
-    //     win.removeAllListeners();
-    // }
-
     function handleWindowControls() {
-        // Make minimise/maximise/restore/close buttons work when they are clicked
         document.getElementById('min-button').addEventListener("click", event => {
             win.minimize();
         });
@@ -50,15 +41,12 @@ module.exports = () => {
         }
 
         win.on('focus', () => {
-            // console.log('window focus');
             document.getElementById('titlebar').classList.remove('not-in-focus');
         });
         
         win.on('blur', () => {
-            // console.log('window blur');
             document.getElementById('titlebar').classList.add('not-in-focus');
         });
-
     }
 
 }

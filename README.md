@@ -21,10 +21,10 @@ Download the latest version [on the releases page](https://github.com/dreiekk/ca
 
 ## Developer setup
 
-Make sure **NodeJS 12.x** and **yarn** are installed
+Make sure **NodeJS 14.x or 16.x** and **npm >= 8.9.0** are installed
 ```
 node -v
-yarn -v
+npm -v
 ```
 
 Clone the repository
@@ -35,20 +35,15 @@ cd calcdav
 
 Install the dependencies
 ```
-yarn install
+npm install
 ```
 
 #### Compiles and hot-reloads for development
 ```
-yarn electron:serve
+npm run electron:serve
 ```
 
 #### Compiles and minifies for production
 ```
-yarn electron:build
-```
-
-#### Lints and fixes files
-```
-yarn lint
+npm run electron:build
 ```

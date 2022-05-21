@@ -23,7 +23,7 @@
 <script>
 import { ipcRenderer } from 'electron';
 export default {
-  name: 'Statusbar',
+  name: 'StatusBar',
   data() {
     return {
       appVersion: null,

@@ -56,13 +56,12 @@
 import { initDav } from '../helpers/DavFunctions';
 
 export default {
-  name: 'Login',
+  name: 'LoginView',
   data: function() {
     return {
       inputCaldavUrl: "",
       inputUsername: "",
       inputPassword: "",
-      // error: null
     }
   },
   computed: {
@@ -95,7 +94,6 @@ export default {
         })
         .catch((error) => {
           this.$store.commit('loginFailed', { error });
-          // alert(error);
         });
       
     },

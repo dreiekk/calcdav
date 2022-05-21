@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <!-- <div id="nav"> -->
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-    <!-- </div> -->
     <div style="width: 100%; height: 30px;">
       <!--  -->
     </div>
     <router-view/>
-    <statusbar></statusbar>
+    <StatusBar></StatusBar>
   </div>
 </template>
 
@@ -36,15 +32,12 @@
 </style>
 
 <script>
-// @ is an alias to /src
-import Statusbar from '@/components/Statusbar.vue'
-
-// const { ipcRenderer } = require('electron')
+import StatusBar from '@/components/StatusBar.vue'
 
 export default {
   name: 'App',
   components: {
-    Statusbar
+    StatusBar
   },
   created() {
     this.$i18n.locale = navigator.language;
