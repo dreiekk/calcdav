@@ -26,19 +26,15 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow() {
   // Create the browser window.
-
   remote.initialize()
 
   win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      // Use pluginOptions.nodeIntegration, leave this alone
-      // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false,
-      // nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true
     },
@@ -66,7 +62,6 @@ async function createWindow() {
   win.on('closed', () => {
     win = null
   })
-
 }
 
 // Quit when all windows are closed.

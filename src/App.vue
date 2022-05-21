@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav"> -->
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-    <!-- </div> -->
     <div style="width: 100%; height: 30px;">
       <!--  -->
     </div>
@@ -36,10 +32,7 @@
 </style>
 
 <script>
-// @ is an alias to /src
 import StatusBar from '@/components/StatusBar.vue'
-
-// const { ipcRenderer } = require('electron')
 
 export default {
   name: 'App',

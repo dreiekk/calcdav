@@ -1,7 +1,3 @@
-// var dav = require('dav');
-// const ical = require('ical');
-// const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 /* eslint-disable no-unused-vars */
 const { dialog } = require("@electron/remote");
 /* eslint-enable no-unused-vars */

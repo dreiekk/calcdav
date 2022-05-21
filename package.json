@@ -28,7 +28,6 @@
     "excel4node": "^1.7.2",
     "fs": "0.0.1-security",
     "ical": "^0.8.0",
-    "jquery": "^3.5.1",
     "lodash.orderby": "^4.6.0",
     "moment": "^2.29.3",
     "popper.js": "^1.16.1",
@@ -38,13 +37,13 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
     "@intlify/vue-i18n-loader": "^1.0.0",
     "@vue/cli-plugin-babel": "~5.0.4",
     "@vue/cli-plugin-eslint": "~5.0.4",
     "@vue/cli-plugin-router": "~5.0.4",
     "@vue/cli-plugin-vuex": "~5.0.4",
     "@vue/cli-service": "~5.0.4",
-    "@babel/eslint-parser": "^7.5.4",
     "electron": "^18.2.4",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^8.15.0",

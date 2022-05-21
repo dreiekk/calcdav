@@ -15,9 +15,7 @@ export default new Vuex.Store({
     calendar: null
   },
   getters: {
-    // isLoading(state) {
-    //   return state.isLoading;
-    // }
+    // 
   },
   mutations: {
     login(state) {
@@ -31,15 +29,12 @@ export default new Vuex.Store({
       state.davInstance = payload.dav;
       state.davAccount = payload.account;
       state.davXhr = payload.xhr;
-
-      // localStorage.setItem("davInstance", JSON.stringify(state.davInstance));
     },
     loginFailed(state, payload) {
       state.loading = false;
       state.auth_error = payload;
     },
     logout(state) {
-      // localStorage.removeItem("davInstance");
       state.isLoggedIn = false;
       state.davInstance = null;
       state.davAccount = null;

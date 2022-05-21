@@ -1,16 +1,14 @@
-/* Basic styling */
+
 * {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 html, body {
-  /* height: 100%; */
   height: 100vh;
   margin: 0;
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
-  /* background: #1A2933; */
   background: #222222;
   color: #FFF;
   overflow: hidden;
@@ -28,17 +26,11 @@ p {
 }
 
 /* Styling of window frame and titlebar */
-/* body { */
-  /* border: 1px solid #48545c; */
-  /* overflow-y: hidden; */
-  /* height: 100vh; */
-/* } */
 
 #titlebar {
   display: block;
   position: fixed;
   height: 32px;
-  /* width: calc(100% - 2px); */
   width: 100%;
 }
 
