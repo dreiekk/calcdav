@@ -62,7 +62,6 @@ export default {
       inputCaldavUrl: "",
       inputUsername: "",
       inputPassword: "",
-      // error: null
     }
   },
   computed: {
@@ -95,7 +94,6 @@ export default {
         })
         .catch((error) => {
           this.$store.commit('loginFailed', { error });
-          // alert(error);
         });
       
     },

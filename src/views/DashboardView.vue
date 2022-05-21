@@ -43,9 +43,6 @@
             <label for="inputDateTo" class="col-form-label col-form-label-sm">{{ $t('current_view') }}</label>
             <button type="button" class="btn btn-secondary btn-sm w-100" @click="excelExport">{{ $t('export_excel') }}</button>
           </div>
-          <!-- <div class="col">
-            <input type="text" class="form-control" placeholder="Last name">
-          </div> -->
         </div>
       </form>
 
@@ -150,23 +147,16 @@
 </style>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 import { syncCalendar } from '../helpers/DavFunctions';
 const ical = require('ical');
 const moment = require('moment');
 var xl = require('excel4node');
 var orderBy = require('lodash.orderby');
 
-// const { ipcRenderer } = require('electron')
 import { openSaveDialog, openErrorDialog } from '../helpers/DialogFunctions';
 
 export default {
   name: 'DashboardView',
-  components: {
-    // HelloWorld
-  },
   data: function() {
     return {
       form: {
@@ -223,15 +213,6 @@ export default {
         
         var ws = wb.addWorksheet();
         
-        // Create a reusable style
-        // var style = wb.createStyle({
-        //   font: {
-        //     color: '#FF0800',
-        //     size: 12,
-        //   },
-        //   numberFormat: '$#,##0.00; ($#,##0.00); -',
-        // });
-        
         let y = 2;
 
         ws.cell(y, 2).string('Exported at ' + moment().format('YYYY-MM-DD HH:mm'));
@@ -260,13 +241,12 @@ export default {
         ws.column(4).setWidth(20);
 
         console.log('saving excel... to: ' + filename);
-        wb.write(filename, (error, stats) => {
+        wb.write(filename, (error) => {
 
           if (error == null) {
             console.log('saved successfully');
-            stats;
           } else {
-            console.log('Catched error from saving excel sheet');
+            console.log('Error saving excel sheet:');
             console.log(error);
             openErrorDialog('Error', 'Could not save excel file: ' + error);
           }
