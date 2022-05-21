@@ -268,19 +268,23 @@ export default {
       console.log('filterRows()');
 
       this.rows = [];
-      if (this.form.search == null || this.form.search.trim() == "") return;
+      if (this.form.search == null || this.form.search.trim() == "") {
+        this.form.search = '';
+      }
 
       this.rows_raw.forEach((row) => {
 
-        let search_parts = this.form.search.trim().split(' ');
-        let search_in_title = true;
-        search_parts.forEach((search_part) => {
-          if (!row.title.toLowerCase().includes(search_part.toLowerCase())) {
-            search_in_title = false;
+        if (this.form.search != '') {
+          let search_parts = this.form.search.trim().split(' ');
+          let search_in_title = true;
+          search_parts.forEach((search_part) => {
+            if (!row.title.toLowerCase().includes(search_part.toLowerCase())) {
+              search_in_title = false;
+            }
+          });
+          if (!search_in_title) {
+            return;
           }
-        });
-        if (!search_in_title) {
-          return;
         }
 
         let moment_date_from = moment(this.form.date_from);
