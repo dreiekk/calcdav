@@ -22,10 +22,14 @@
             <input type="password" class="form-control" id="inputPassword" v-model="inputPassword" :placeholder="$t('password')">
           </div>
           <button type="submit" class="btn btn-sm btn-primary" :disabled="loading">
-            <i v-if="!loading" class="fas fa-fw fa-key mr-1"></i>
-            <i v-if="loading" class="fas fa-fw fa-spin fa-circle-notch mr-1"></i>
-            <span v-if="!loading">{{ $t('login') }}</span>
-            <span v-if="loading">{{ $t('logging_in') }}</span>
+            <div v-if="loading">
+              <span><i class="fas fa-fw fa-spin fa-circle-notch mr-1"></i></span>
+              <span>{{ $t('logging_in') }}</span>
+            </div>
+            <div v-else>
+              <span><i class="fas fa-fw fa-key mr-1"></i></span>
+              <span>{{ $t('login') }}</span>
+            </div>
           </button>
         </form>
       </div>

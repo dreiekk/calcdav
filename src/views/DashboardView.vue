@@ -2,22 +2,22 @@
   <div class="text-white">
 
     <div v-if="statusbar == 'error'" class="alert alert-danger text-center mb-0">
-      <i class="fas fa-fw fa-exclamation-triangle"></i>
+      <span><i class="fas fa-fw fa-exclamation-triangle"></i></span>
       {{ $t('status_error') }}
     </div>
 
     <div v-if="statusbar == 'updating_calendar'" class="alert alert-info text-center mb-0">
-      <i class="fas fa-fw fa-spin fa-circle-notch"></i>
+      <span><i class="fas fa-fw fa-spin fa-circle-notch"></i></span>
       {{ $t('status_calendar_download') }}
     </div>
 
     <div v-if="statusbar == 'calendar_uptodate'" class="alert alert-success text-center mb-0">
-      <i class="fas fa-fw fa-check"></i>
+      <span><i class="fas fa-fw fa-check"></i></span>
       {{ $t('status_calendar_uptodate') }}
     </div>
 
     <div v-if="statusbar == 'calendar_changed'" class="alert alert-info text-center mb-0">
-      <i class="fas fa-fw fa-exchange-alt"></i>
+      <span><i class="fas fa-fw fa-exchange-alt"></i></span>
       {{ $t('status_calendar_changed') }}
       <a class="ml-2" href="#">{{ $t('status_calendar_changed_button') }}</a>
     </div>
@@ -70,23 +70,23 @@
               <th></th>
               <th @click="sort('title')">
                 {{ $t('title') }}
-                <i v-if="sorting.column == 'title' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
-                <i v-if="sorting.column == 'title' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+                <span v-if="sorting.column == 'title' && sorting.direction == 'desc'"><i class="fas fa-fw fa-caret-down"></i></span>
+                <span v-if="sorting.column == 'title' && sorting.direction == 'asc'"><i class="fas fa-fw fa-caret-up"></i></span>
               </th>
               <th @click="sort('start_raw')">
                 {{ $t('from') }}
-                <i v-if="sorting.column == 'start_raw' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
-                <i v-if="sorting.column == 'start_raw' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+                <span v-if="sorting.column == 'start_raw' && sorting.direction == 'desc'"><i class="fas fa-fw fa-caret-down"></i></span>
+                <span v-if="sorting.column == 'start_raw' && sorting.direction == 'asc'"><i class="fas fa-fw fa-caret-up"></i></span>
               </th>
               <th @click="sort('end_raw')">
                 {{ $t('to') }}
-                <i v-if="sorting.column == 'end_raw' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
-                <i v-if="sorting.column == 'end_raw' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+                <span v-if="sorting.column == 'end_raw' && sorting.direction == 'desc'"><i class="fas fa-fw fa-caret-down"></i></span>
+                <span v-if="sorting.column == 'end_raw' && sorting.direction == 'asc'"><i class="fas fa-fw fa-caret-up"></i></span>
               </th>
               <th @click="sort('hours')" class="text-center">
                 {{ $t('hours_title') }}
-                <i v-if="sorting.column == 'hours' && sorting.direction == 'desc'" class="fas fa-fw fa-caret-down"></i>
-                <i v-if="sorting.column == 'hours' && sorting.direction == 'asc'" class="fas fa-fw fa-caret-up"></i>
+                <span v-if="sorting.column == 'hours' && sorting.direction == 'desc'"><i class="fas fa-fw fa-caret-down"></i></span>
+                <span v-if="sorting.column == 'hours' && sorting.direction == 'asc'"><i class="fas fa-fw fa-caret-up"></i></span>
               </th>
             </tr>
           </thead>
