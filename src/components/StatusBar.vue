@@ -9,7 +9,7 @@
           <i v-if="updateLoading" class="fas fa-fw fa-spin fa-circle-notch mr-2"></i>
           <span>{{ updateStatus }}</span>
         </div>
-        <a href="#" @click="restartForUpdate" v-if="updateReady">
+        <a href="#" style="color: lightgray" @click="restartForUpdate" v-if="updateReady">
           <i class="fas fa-fw fa-box-open mr-2"></i>
           Update ready. Click here to install.
         </a>

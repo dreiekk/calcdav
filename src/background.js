@@ -117,6 +117,7 @@ ipcMain.on('requestVersion', (event) => {
 
 ipcMain.on('checkForUpdate', () => {
   if (!isDevelopment) {
+    autoUpdater.autoInstallOnAppQuit = false;
     autoUpdater.checkForUpdates();
   } else {
     console.log('We are in dev-environment. Skipping update check...');
