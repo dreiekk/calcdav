@@ -278,7 +278,11 @@ export default {
           let search_parts = this.form.search.trim().split(' ');
           let search_in_title = true;
           search_parts.forEach((search_part) => {
-            if (!row.title.toLowerCase().includes(search_part.toLowerCase())) {
+            try {
+              if (!row.title.toLowerCase().includes(search_part.toLowerCase())) {
+                search_in_title = false;
+              }
+            } catch(e) {
               search_in_title = false;
             }
           });
